@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Link,} from "react-router-dom";
+import {Dashboard}  from "./Component/Dashboard";
+import Header from "./Component/Header";
+import { Product } from "./Component/Product";
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+import { Products } from "./Component/Products";
+import { Shoe } from "./Component/Shoe";
+import { NotFound } from "./Component/NotFound";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Dashboard />} />
+        <Route path='product' element={<Products />} >
+          <Route path='/' element={<Product />} />
+          <Route path=':slug' element={<Shoe />} />
+        </Route>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
