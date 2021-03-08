@@ -26,7 +26,7 @@ export const Dashboard = () => {
         <div id="apppage">
         <MDBView>
           <MDBMask className="white-text gradient" />
-          <MDBContainer
+          <MDBContainer fluid
             style={{ height: "100%", width: "100%", paddingTop: "10rem" }}
             className="d-flex justify-content-center white-text align-items-center">
             <MDBRow>
@@ -37,10 +37,7 @@ export const Dashboard = () => {
                   </h1>
                   <hr className="hr-light" />
                   <h6 className="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Rem repellendus quasi fuga nesciunt dolorum nulla magnam
-                    veniam sapiente, fugiat! Commodi sequi non animi ea dolor
-                    molestiae iste.
+                    A React App using react-router-dom and Material design Bootstrap. Click the below button to view products.
                   </h6>
                   <MDBBtn outline color="white" onClick={()=>{
                       navigate('/product')

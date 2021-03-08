@@ -1,5 +1,7 @@
 import React from 'react'
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBtn, MDBContainer } from "mdbreact";
+
 export const Shoe = () => {
     const {slug} = useParams();
     const shoe = shoes[slug];
@@ -9,12 +11,45 @@ export const Shoe = () => {
     }
     const {name , img} = shoe;
     return (
-        <div>
-            <h2>
-                {name}
-            </h2>
-            <img src={img} alt={name}/>
-        </div>
+        <MDBContainer>
+          <h2 className="h1-responsive font-weight-bold text-center my-5">
+            Product Detail
+          </h2>
+          <MDBRow>
+            <MDBCol lg="5">
+              <MDBView className="rounded z-depth-2 mb-lg-0 mb-4" hover waves>
+                <img
+                  className="img-fluid"
+                  src={img}
+                  alt={name}
+                />
+                <a>
+                  <MDBMask overlay="white-slight" />
+                </a>
+              </MDBView>
+            </MDBCol>
+            <MDBCol lg="7">
+              <Link to="/Product" className="green-text">
+                <h6 className="font-weight-bold mb-3">
+                  <MDBIcon icon="angle-double-left" className="pr-2" />
+                  Shoes
+                </h6>
+              </Link>
+              <h3 className="font-weight-bold mb-3 p-0">
+                <strong>{name}</strong>
+              </h3>
+              <p>
+                Nam libero tempore, cum soluta nobis est eligendi optio cumque
+                nihil impedit quo minus id quod maxime placeat facere possimus,
+                omnis voluptas assumenda est, omnis dolor repellendus et aut
+                officiis debitis.
+              </p>
+              <MDBBtn color="success" size="md" className="waves-light ">
+                Buy
+              </MDBBtn>
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
     )
 }
 
